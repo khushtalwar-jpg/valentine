@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Important Question 😏</title>
+
+<style>
+    body {
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Comic Sans MS', cursive;
+    }
+
+    .card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        position: relative;
+        width: 350px;
+    }
+
+    h1 {
+        color: #ff1a75;
+        margin-bottom: 30px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    #yes {
+        background: #ff1a75;
+        color: white;
+        margin-right: 15px;
+    }
+
+    #no {
+        background: #444;
+        color: white;
+        position: absolute;
+    }
+
+    .buttons {
+        position: relative;
+        height: 120px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Drishuuu Will you be my Valentine? 😳💖</h1>
+
+    <div class="buttons">
+        <button id="yes" onclick="yesClick()">Yes 😍</button>
+        <button id="no" onmouseover="moveNo()">No 😏</button>
+    </div>
+
+    <p id="msg"></p>
+</div>
+
+<script>
+    const funnyTexts = [
+        "Aww come on 😜",
+        "Nice try 😏",
+        "Not allowed 🚫😂",
+        "System error ❌",
+        "Option not available 😆",
+        "Think again 😌",
+        "Wrong choice 😈",
+        "Haha nope 😝"
+    ];
+
+    function moveNo() {
+        const noBtn = document.getElementById("no");
+        const container = document.querySelector(".buttons");
+
+        const maxX = container.clientWidth - noBtn.offsetWidth;
+        const maxY = container.clientHeight - noBtn.offsetHeight;
+
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        noBtn.style.left = randomX + "px";
+        noBtn.style.top = randomY + "px";
+
+        document.getElementById("msg").innerText =
+            funnyTexts[Math.floor(Math.random() * funnyTexts.length)];
+    }
+
+    function yesClick() {
+        document.body.innerHTML = `
+            <div style="text-align:center;">
+                <h1>YAYYY!! 🎉❤️</h1>
+                <h2>You’re officially my Valentine 😘💘</h2>
+                <p>Now no escape 😏😂</p>
+            </div>
+        `;
+    }
+</script>
+
+</body>
+</html>
